@@ -1,0 +1,74 @@
+﻿@model PRN_ProjectBlogs.Models.Account
+
+@{
+    ViewData["Title"] = "TẠO MỚI TÀI KHOẢN";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>TẠO MỚI TÀI KHOẢN</h1>
+
+
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Accounts" asp-action="Index">TẠO MỚI TÀI KHOẢN</a></li>
+        <li class="breadcrumb-item active" aria-current="page">TẠO MỚI DANH MỤC</li>
+    </ol>
+    <h6 class="slim-pagetitle">TẠO MỚI TÀI KHOẢN</h6>
+</div><!-- slim-pageheader -->
+<div class="section-wrapper">
+    <form asp-area="Admin" asp-controller="Accounts" asp-action="Create" method="post" enctype="multipart/form-data">
+
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="col-lg-6">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Tên: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="FullName">
+                    </div>
+                </div><!-- col-4 -->
+
+                <div class="col-lg-6">
+                    <div class="form-group ">
+                        <label class="form-control-label">Email: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="Email">
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-6">
+                    <div class="form-group ">
+                        <label class="form-control-label">Số điện thoại: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="Phone">
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-6">
+                    <div class="form-group ">
+                        <label class="form-control-label">Password: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="Password">
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-6">
+                    <div class="form-group ">
+                        <label>Trạng Thái:</label>
+                        <br\>
+
+                            <input class="checkbox" asp-for="Active"><span>Active</span>
+                    </div>
+                </div><!-- col-4 -->
+                <div class="col-lg-6">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Role: <span class="tx-danger">*</span></label>
+                        <select class="form-control select2" asp-for="RoleId" asp-items="@ViewBag.RoleId" required>
+                            <option value="0" selected>Role</option>
+                        </select>
+                    </div>
+                </div><!-- col-4 -->
+
+            </div>
+
+            <div class="form-layout-footer">
+                <button class="btn btn-primary bd-0">Create</button>
+                <a asp-area="Admin" asp-controller="Accounts" asp-action="Index" class-"btn btn-success bd-0"> Back to List</a>
+            </div><!-- form-layout-footer -->
+        </div><!-- form-layout -->
+    </form>
+</div><!-- section-wrapper -->

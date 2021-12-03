@@ -1,0 +1,49 @@
+﻿@model PRN_ProjectBlogs.Models.Account
+
+@{
+    ViewData["Title"] = "EditProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Edit Profile</h1>
+
+<div class="slim-pageheader">
+    <ol class="breadcrumb slim-breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Categories" asp-action="Edit">Edit Profile</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+    </ol>
+    <h6 class="slim-pagetitle">Edit Profile: @Model.FullName</h6>
+</div><!-- slim-pageheader -->
+<div class="section-wrapper">
+    <form asp-area="Admin" asp-controller="Accounts" asp-action="EditProfile" asp-route-id="@Model.AccountId" method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="AccountId" />
+        <input type="hidden" asp-for="FullName" />
+        <input type="hidden" asp-for="Phone" />
+
+        <div class="form-layout">
+            <div class="row mg-b-25">
+                <div class="col-lg-6">
+                    <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Tên: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="FullName">
+                    </div>
+                </div><!-- col-4 -->
+                
+                <div class="col-lg-6">
+                    <div class="form-group ">
+                        <label class="form-control-label">Số Điện Thoại: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="text" asp-for="Phone">
+                    </div>
+                </div><!-- col-4 -->
+               
+
+            </div>
+
+            <div class="form-layout-footer">
+                <button class="btn btn-primary bd-0">Save</button>
+                <a asp-area="Admin" asp-controller="Categories" asp-action="Index" class-"btn btn-success bd-0"> Back to List</a>
+            </div><!-- form-layout-footer -->
+        </div><!-- form-layout -->
+    </form>
+</div><!-- section-wrapper -->
